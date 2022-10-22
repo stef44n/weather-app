@@ -1,10 +1,14 @@
 * {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 @font-face {
     font-family: my-font;
     src: url(./Atkinson-Hyperlegible-Regular-102.otf);
+}
+
+p {
+    margin: 37px 0;
 }
 
 body {
@@ -34,13 +38,17 @@ input {
     flex-grow: 1;
 }
 
-.descContainer {
+.descContainer,
+.countryContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    top: -35px;
 }
+
+/* .descContainer {
+    top: -35px;
+} */
 
 .gifImageDiv {
     display: flex;
@@ -49,6 +57,11 @@ input {
 
 .gifImageDiv img {
     border-radius: 10px;
+}
+
+.flagImg {
+    height: 60px;
+    border-radius: 3px;
 }
 
 .loader {

@@ -1,14 +1,19 @@
 const container = document.querySelector(".container");
+
 const searchContainer = document.createElement("div");
 const descContainer = document.createElement("div");
+const countryContainer = document.createElement("div");
 
 const city = document.createElement("p");
 const country = document.createElement("p");
 const temperature = document.createElement("p");
 const description = document.createElement("p");
+
 const btn = document.createElement("button");
 const searchBox = document.createElement("input");
+
 const iconImg = document.createElement("img");
+const flagImg = document.createElement("img");
 const gifImageDiv = document.createElement("div");
 const gifImage = document.createElement("img");
 
@@ -22,13 +27,17 @@ searchBox.value = "London";
 
 searchContainer.setAttribute("class", "searchContainer");
 descContainer.setAttribute("class", "descContainer");
+countryContainer.setAttribute("class", "countryContainer");
 gifImageDiv.setAttribute("class", "gifImageDiv");
+flagImg.setAttribute("class", "flagImg");
 
 container.append(searchContainer);
 searchContainer.append(searchBox);
 searchContainer.append(btn);
 
-container.append(city, country, temperature);
+countryContainer.append(country, flagImg);
+
+container.append(city, countryContainer, temperature);
 container.append(descContainer);
 descContainer.append(description, iconImg);
 container.append(gifImageDiv);
@@ -81,6 +90,7 @@ async function getWeather() {
         temperature.textContent = `Temp: ${roundedTempData} \xB0C`;
         description.textContent = `Description: ${descData}`;
         iconImg.src = `http://openweathermap.org/img/wn/${iconData}@2x.png`;
+        flagImg.src = `https://countryflagsapi.com/svg/${countryData}`;
 
         console.log(descMainData);
         console.log(iconData);
