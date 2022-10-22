@@ -70,7 +70,7 @@ async function getWeather() {
         gifImage.src = "";
         getLoader();
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${searchBox.value}&APPID=793fe266f05f0bb2bf84ac67ef8dc4ab`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${searchBox.value}&APPID=793fe266f05f0bb2bf84ac67ef8dc4ab`,
             {
                 mode: "cors",
             }
@@ -89,7 +89,7 @@ async function getWeather() {
         country.textContent = `Country: ${countryData}`;
         temperature.textContent = `Temp: ${roundedTempData} \xB0C`;
         description.textContent = `Description: ${descData}`;
-        iconImg.src = `http://openweathermap.org/img/wn/${iconData}@2x.png`;
+        iconImg.src = `https://openweathermap.org/img/wn/${iconData}@2x.png`;
         flagImg.src = `https://countryflagsapi.com/svg/${countryData}`;
 
         console.log(descMainData);
@@ -111,7 +111,7 @@ async function getWeather() {
 getWeather();
 
 fetch(
-    "http://api.openweathermap.org/data/2.5/weather?q=London&APPID=793fe266f05f0bb2bf84ac67ef8dc4ab",
+    "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=793fe266f05f0bb2bf84ac67ef8dc4ab",
     {
         mode: "cors",
     }
