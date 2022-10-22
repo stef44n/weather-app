@@ -33,10 +33,17 @@ async function getWeather() {
             }
         );
         const weatherData = await response.json();
-        city.textContent = `City: ${weatherData.name}`;
-        country.textContent = `Country: ${weatherData.sys.country}`;
-        temperature.textContent = `Temp: ${weatherData.main.temp - 273}`;
-        description.textContent = `Desc.: ${weatherData.weather[0].description}`;
+
+        cityData = weatherData.name;
+        countryData = weatherData.sys.country;
+        tempData = weatherData.main.temp - 273;
+        roundedTempData = Math.round(tempData * 10) / 10;
+        descData = weatherData.weather[0].description;
+
+        city.textContent = `City: ${cityData}`;
+        country.textContent = `Country: ${countryData}`;
+        temperature.textContent = `Temp: ${roundedTempData} \xB0C`;
+        description.textContent = `Desc.: ${descData}`;
         console.log(weatherData.name);
     } catch (err) {
         console.log(err);
