@@ -1,6 +1,7 @@
 console.log("hello wrld");
 
 const container = document.querySelector(".container");
+const searchContainer = document.createElement("div");
 
 const city = document.createElement("p");
 const country = document.createElement("p");
@@ -17,8 +18,9 @@ description.textContent = "description";
 
 searchBox.value = "London";
 
-container.append(btn);
-container.append(searchBox);
+container.append(searchContainer);
+searchContainer.append(searchBox);
+searchContainer.append(btn);
 
 container.append(city, country, temperature, description);
 
@@ -36,15 +38,16 @@ async function getWeather() {
 
         cityData = weatherData.name;
         countryData = weatherData.sys.country;
-        tempData = weatherData.main.temp - 273;
+        tempData = weatherData.main.temp - 273.15;
         roundedTempData = Math.round(tempData * 10) / 10;
         descData = weatherData.weather[0].description;
+        descMainData = weatherData.weather[0].main;
 
         city.textContent = `City: ${cityData}`;
         country.textContent = `Country: ${countryData}`;
         temperature.textContent = `Temp: ${roundedTempData} \xB0C`;
-        description.textContent = `Desc.: ${descData}`;
-        console.log(weatherData.name);
+        description.textContent = `Description: ${descData}`;
+        console.log(descMainData);
     } catch (err) {
         console.log(err);
     }
