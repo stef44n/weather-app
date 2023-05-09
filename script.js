@@ -90,7 +90,7 @@ async function getWeather() {
         temperature.textContent = `Temp: ${roundedTempData} \xB0C`;
         description.textContent = `Description: ${descData}`;
         iconImg.src = `https://openweathermap.org/img/wn/${iconData}@2x.png`;
-        flagImg.src = `https://countryflagsapi.com/svg/${countryData}`;
+        flagImg.src = `https://www.countryflagicons.com/FLAT/64/${countryData}.png`;
 
         console.log(descMainData);
         console.log(iconData);
